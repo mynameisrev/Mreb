@@ -49,14 +49,14 @@ jobs:
         id: build-php-image
         run: |
           docker build -t app .
-          docker tag app:latest 876828831662.dkr.ecr.ap-southeast-1.amazonaws.com/app:latest
-          docker push 876828831662.dkr.ecr.ap-southeast-1.amazonaws.com/app:latest
+           docker tag app:latest 876828831662.dkr.ecr.ap-southeast-1.amazonaws.com/app:latest
+           docker push 876828831662.dkr.ecr.ap-southeast-1.amazonaws.com/app:latest
       - name: Build nginx
         id: build-nginx-image
         run: |
           docker build . -f Dockerfile_Nginx -t nginx
-          docker tag nginx:latest 876828831662.dkr.ecr.ap-southeast-1.amazonaws.com/nginx:latest
-          docker push 876828831662.dkr.ecr.ap-southeast-1.amazonaws.com/nginx:latest          
+           docker tag nginx:latest 876828831662.dkr.ecr.ap-southeast-1.amazonaws.com/nginx:latest
+           docker push 876828831662.dkr.ecr.ap-southeast-1.amazonaws.com/nginx:latest          
       - name: Download task definition
         run: |
             aws ecs describe-task-definition --task-definition MTR --query taskDefinition > task-definition.json    
